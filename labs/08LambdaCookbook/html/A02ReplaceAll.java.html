@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>A02ReplaceAll.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.ST4 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.ST0 {color: #35a83b; font-family: Monospaced; font-weight: bold}
+.ST5 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.comment {color: #35a83b}
+.string {color: #ce7b00}
+-->
+</style>
+<!-- Add code before closing head tag -->
+<link rel="stylesheet" href="res/code.css" type="text/css" />
+</head>
+<body>
+<table width="100%"><tr><td align="center">/home/oracle/labs/08LambdaCookbook/examples/EmployeeSearch08/src/com/example/lambda/A02ReplaceAll.java</td></tr></table>
+<pre>
+ 1 <span class="literal">package</span> com.example.lambda;
+ 2 
+ 3 <span class="literal">import</span> java.time.LocalDate;
+ 4 <span class="literal">import</span> java.util.ArrayList;
+ 5 
+ 6 <span class="comment">/**</span>
+ 7 <span class="comment"> *</span>
+ 8 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">oracle</span>
+ 9  <span class="comment">*/</span>
+10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">A02ReplaceAll</span> {
+11   <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+12     ArrayList&lt;Employee&gt; eList = 
+13         (ArrayList) Employee.<span class="ST3">createShortList</span>();
+14         
+15     System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">=== Starting List ===</span><span class="string">&quot;</span>);
+16     eList.forEach(Employee::printSummary);
+17         
+18     eList.replaceAll(e -&gt; 
+19         <span class="literal">new</span> Employee.Builder()
+20         .givenName(<span class="string">&quot;</span><span class="string">Bob</span><span class="string">&quot;</span>)
+21         .surName(<span class="string">&quot;</span><span class="string">Baker</span><span class="string">&quot;</span>)
+22         .age(23)
+23         .gender(Gender.<span class="ST4">MALE</span>)
+24         .role(Role.<span class="ST4">STAFF</span>)
+25         .dept(<span class="string">&quot;</span><span class="string">Eng</span><span class="string">&quot;</span>)
+26         .startDate(LocalDate.<span class="ST3">of</span>(2013, 1, 10))
+27         .salary(40000)
+28         .email(<span class="string">&quot;</span><span class="string">bob.baker@example.com</span><span class="string">&quot;</span>)
+29         .phoneNumber(<span class="string">&quot;</span><span class="string">201-121-4678</span><span class="string">&quot;</span>)
+30         .address(<span class="string">&quot;</span><span class="string">44 4th St</span><span class="string">&quot;</span>)
+31         .city(<span class="string">&quot;</span><span class="string">Smallville</span><span class="string">&quot;</span>)
+32         .state(<span class="string">&quot;</span><span class="string">KS</span><span class="string">&quot;</span>)
+33         .code(<span class="string">&quot;</span><span class="string">12333</span><span class="string">&quot;</span>)
+34         .build() 
+35     );
+36          
+37     System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">=== Ending List ===</span><span class="string">&quot;</span>);
+38     eList.forEach(Employee::printSummary);
+39         
+40   }
+41 }
+42 
+</pre>
+<!-- Add code before closing body tag -->
+<script src="res/jquery.js" type="text/javascript"></script>
+<script src="res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="res/tooltip.js" type="text/javascript"></script>
+</body></html>

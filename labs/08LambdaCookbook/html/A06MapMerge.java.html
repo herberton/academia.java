@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>A06MapMerge.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.ST4 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.ST0 {color: #35a83b; font-family: Monospaced; font-weight: bold}
+.comment {color: #35a83b}
+.string {color: #ce7b00}
+-->
+</style>
+<!-- Add code before closing head tag -->
+<link rel="stylesheet" href="res/code.css" type="text/css" />
+</head>
+<body>
+<table width="100%"><tr><td align="center">/home/oracle/labs/08LambdaCookbook/examples/EmployeeSearch08/src/com/example/lambda/A06MapMerge.java</td></tr></table>
+<pre>
+ 1 <span class="literal">package</span> com.example.lambda;
+ 2 
+ 3 <span class="literal">import</span> java.util.ArrayList;
+ 4 <span class="literal">import</span> java.util.Arrays;
+ 5 <span class="literal">import</span> java.util.HashMap;
+ 6 <span class="literal">import</span> java.util.List;
+ 7 <span class="literal">import</span> java.util.Map;
+ 8 <span class="literal">import</span> java.util.Set;
+ 9 <span class="literal">import</span> java.util.stream.Collectors;
+10 
+11 
+12 <span class="comment">/**</span>
+13 <span class="comment"> *</span>
+14 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">oracle</span>
+15  <span class="comment">*/</span>
+16 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">A06MapMerge</span> {
+17   <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+18     Map&lt;String, String&gt; stMap = <span class="literal">new</span> HashMap&lt;&gt;();
+19     String message = <span class="string">&quot;</span><span class="string"> (Verified C State)</span><span class="string">&quot;</span>;
+20         
+21     stMap.put(<span class="string">&quot;</span><span class="string">WY</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Cheyenne</span><span class="string">&quot;</span>);
+22     stMap.put(<span class="string">&quot;</span><span class="string">SD</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Pierre</span><span class="string">&quot;</span>);
+23     stMap.put(<span class="string">&quot;</span><span class="string">CO</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Denver</span><span class="string">&quot;</span>);
+24     stMap.put(<span class="string">&quot;</span><span class="string">CA</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Sacramento</span><span class="string">&quot;</span>);
+25     stMap.put(<span class="string">&quot;</span><span class="string">DE</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Dover</span><span class="string">&quot;</span>);
+26 
+27     <span class="comment">// Stream Key&#39;s</span>
+28     List&lt;String&gt; cList = stMap.keySet().stream()
+29        .filter(s -&gt; s.startsWith(<span class="string">&quot;</span><span class="string">C</span><span class="string">&quot;</span>))
+30        .collect(Collectors.<span class="ST3">toList</span>());
+31         
+32     cList.stream().forEach((e) -&gt; {
+33       stMap.merge(e, message, (s,m) -&gt; s.concat(m));
+34     });
+35                
+36     stMap.forEach((k,v) -&gt; 
+37       System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Key: </span><span class="string">&quot;</span> + k + <span class="string">&quot;</span><span class="string">  Value: </span><span class="string">&quot;</span> + v));    
+38   } 
+39 }
+40 
+</pre>
+<!-- Add code before closing body tag -->
+<script src="res/jquery.js" type="text/javascript"></script>
+<script src="res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="res/tooltip.js" type="text/javascript"></script>
+</body></html>

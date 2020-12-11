@@ -1,0 +1,37 @@
+
+Buyers -- Class
+==========================
+Acme Electronics -- Silver
+Best Deals -- Gold
+Great Deals -- Normal
+Mom and Pops -- Normal
+Radio Hut -- Platinum
+PriceCo -- Silver
+
+Dicount Rates
+==============
+Normal -- None
+Silver -- 1%
+Gold -- 2%
+Platinum -- 3%
+
+Cash -- 1%
+
+Sales People
+===============
+
+Boston (9% Sales Tax)
+John Adams
+Samual Adams
+
+Denver (8% Sales Tax)
+Betty Jones
+Dave Smith
+
+San Jose (9% Sales Tax)
+Jane Doe
+John Smith
+
+
+
+

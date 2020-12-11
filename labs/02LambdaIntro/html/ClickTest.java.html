@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ClickTest.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.ST4 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.ST0 {color: #35a83b; font-family: Monospaced; font-weight: bold}
+.comment {color: #35a83b}
+.string {color: #ce7b00}
+-->
+</style>
+<!-- Add code before closing head tag -->
+<link rel="stylesheet" href="res/code.css" type="text/css" />
+</head>
+<body>
+<table width="100%"><tr><td align="center">/home/oracle/labs/02LambdaIntro/examples/guiapp02/src/com/example/lambda/ClickTest.java</td></tr></table>
+<pre>
+ 1 <span class="literal">package</span> com.example.lambda;
+ 2 
+ 3 <span class="literal">import</span> javafx.application.Application;
+ 4 <span class="literal">import</span> javafx.event.ActionEvent;
+ 5 <span class="literal">import</span> javafx.event.EventHandler;
+ 6 <span class="literal">import</span> javafx.scene.Scene;
+ 7 <span class="literal">import</span> javafx.scene.control.Button;
+ 8 <span class="literal">import</span> javafx.scene.layout.HBox;
+ 9 <span class="literal">import</span> javafx.scene.layout.StackPane;
+10 <span class="literal">import</span> javafx.stage.Stage;
+11 
+12 <span class="comment">/**</span>
+13 <span class="comment"> *</span>
+14 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">oracle</span>
+15  <span class="comment">*/</span>
+16 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">ClickTest</span> <span class="literal">extends</span> Application{
+17   
+18   <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+19     <span class="ST3">launch</span>(args);
+20   }
+21   
+22   @Override
+23   <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">start</span>(Stage primaryStage){
+24     
+25     primaryStage.setTitle(<span class="string">&quot;</span><span class="string">Click Test</span><span class="string">&quot;</span>);
+26     Button btn= <span class="literal">new</span> Button();
+27     Button btn2 = <span class="literal">new</span> Button();
+28     HBox hb = <span class="literal">new</span> HBox();
+29     
+30     btn.setText(<span class="string">&quot;</span><span class="string">Test Button</span><span class="string">&quot;</span>);
+31     
+32     <span class="comment">// Anonymous inner class event handler</span>
+33     btn.setOnAction(
+34       <span class="literal">new</span> EventHandler&lt;ActionEvent&gt;(){
+35         @Override
+36         <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">handle</span>(ActionEvent event){
+37           System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Click detected by Anon Class</span><span class="string">&quot;</span>);
+38         }
+39       });
+40     
+41     btn2.setText(<span class="string">&quot;</span><span class="string">Test Button 2</span><span class="string">&quot;</span>);
+42     
+43     <span class="comment">// Lambd expression</span>
+44     btn2.setOnAction(
+45       (ActionEvent e) -&gt; {System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test 2 button clicked</span><span class="string">&quot;</span>);}
+46     );
+47     
+48     StackPane root = <span class="literal">new</span> StackPane();
+49     hb.getChildren().add(btn);
+50     hb.getChildren().add(btn2);
+51     root.getChildren().add(hb);
+52     primaryStage.setScene(<span class="literal">new</span> Scene(root, 300, 250));
+53     primaryStage.show();
+54     
+55   } 
+56 }
+57 
+</pre>
+<!-- Add code before closing body tag -->
+<script src="res/jquery.js" type="text/javascript"></script>
+<script src="res/jquery.tooltip.js" type="text/javascript"></script>
+<script src="res/tooltip.js" type="text/javascript"></script>
+</body></html>
